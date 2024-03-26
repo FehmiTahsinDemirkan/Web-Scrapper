@@ -1,7 +1,6 @@
 import asyncio
 import json
 import os
-
 from trendyol_scraper import TrendyolScraper
 from n11_scraper import N11Scraper
 from file_exporter import JSONExporter
@@ -37,10 +36,12 @@ async def main():
         hepsiburada_json_exporter.export_data(hepsiburada_scraper.data, 'n11.json')
         logger.info("N11 verileri başarıyla çekildi ve JSON dosyasına aktarıldı.")
 
+
+
     # Send email with attachments
     email_sender_instance = EmailSender(
         sender_email=os.getenv("SENDER_EMAIL"),
-        sender_password=os.getenv("SENDER_PASSWORD")
+        sender_password=os.getenv("SENDER_PASSWORD"),
     )
 
     await email_sender_instance.send_email(

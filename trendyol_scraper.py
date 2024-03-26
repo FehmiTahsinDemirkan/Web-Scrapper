@@ -27,8 +27,12 @@ class TrendyolScraper:
             product_name = self.extract_product_name(soup)
             price_without_discount = self.extract_price_without_discount(soup)
             review_count = self.extract_review_count(soup)
-            self.data.append({'product_name': product_name, 'seller': seller, 'price': price,
-                              'price_without_discount': price_without_discount, 'review_count': review_count})
+            self.data.append({'product_name': product_name,
+                              'seller': seller,
+                              'price': price,
+                              'price_without_discount': price_without_discount,
+                              'review_count': review_count
+                              })
 
     def extract_price(self, soup):
         price_tag = soup.find(class_='prc-dsc')
